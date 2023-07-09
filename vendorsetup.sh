@@ -35,7 +35,6 @@ if [ -z "$1" -a -z "$FOX_BUILD_DEVICE" ]; then
 fi
 
 if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
-	export LC_ALL="C"
  	export ALLOW_MISSING_DEPENDENCIES=true
 	export TARGET_DEVICE_ALT="fog,rain,wind"
 	export FOX_RECOVERY_SYSTEM_PARTITION="/dev/block/mapper/system"
@@ -56,6 +55,12 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	export FOX_USE_SED_BINARY=1
 	export FOX_USE_XZ_UTILS=1
     	export OF_QUICK_BACKUP_LIST="/boot;/data;"
+        export OF_ENABLE_LPTOOLS=1
+        export OF_FORCE_MAGISKBOOT_BOOT_PATCH_MIUI=1
+        export OF_KEEP_DM_VERITY_FORCED_ENCRYPTION=1
+        export OF_SKIP_DECRYPTED_ADOPTED_STORAGE=1
+        export OF_FIX_DECRYPTION_ON_DATA_MEDIA=1
+
 	export OF_PATCH_AVB20=1
     	export FOX_DELETE_AROMAFM=1
     	export FOX_BUGGED_AOSP_ARB_WORKAROUND="1546300800"; # Tuesday, January 1, 2019 12:00:00 AM GMT+00:00
